@@ -8,6 +8,7 @@ from typing import List, Any
 from arto.conf import settings
 from arto.core.cleaner.model import CleanPath
 from arto.core.utils import rmdir
+from arto.core.safe_rm import safe_rm_service
 
 logger = logging.getLogger("arto")
 
@@ -74,7 +75,7 @@ class CleanManager:
         dirs_to_rm = get_dirs_to_rm(path_to_clean, fmt, to_keep)
         for path_to_rm in dirs_to_rm:
             for ref_path in reference_paths:
-                self.safe_rm(path_to_rm, ref_path)
+                safe_rm_service.safe_rm(path_to_rm, ref_path)
 
     def _conditional_clean(
         self, path_to_clean: Path, fmt: str, to_keep: int, expected_files: set[str]

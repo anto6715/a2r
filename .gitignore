@@ -5,6 +5,7 @@ dist
 
 # files
 poetry.lock
+.dir_md5.txt
 
 # extensions
 *.nc

@@ -1,0 +1,1 @@
+from arto.core.safe_rm import service as safe_rm_service
