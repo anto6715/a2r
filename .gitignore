@@ -1,0 +1,10 @@
+# dir
+.idea
+__pycache__
+dist
+
+# files
+poetry.lock
+
+# extensions
+*.nc

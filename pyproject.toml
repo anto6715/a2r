@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "arto"
+version = "0.1.0"
+description = "Archive and (safe) Removal Toolbox"
+authors = ["Antonio Mariani <antonio.mariani@cmcc.it>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
