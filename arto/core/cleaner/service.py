@@ -9,6 +9,7 @@ from arto.conf import settings
 from arto.core.cleaner.model import CleanPath
 from arto.core.utils import rmdir
 from arto.core.safe_rm import safe_rm_service
+from arto.management.cli import update_md5
 
 logger = logging.getLogger("arto")
 
@@ -75,6 +76,7 @@ class CleanManager:
         dirs_to_rm = get_dirs_to_rm(path_to_clean, fmt, to_keep)
         for path_to_rm in dirs_to_rm:
             for ref_path in reference_paths:
+                update_md5(path_to_rm)
                 safe_rm_service.safe_rm(path_to_rm, ref_path)
 
     def _conditional_clean(
