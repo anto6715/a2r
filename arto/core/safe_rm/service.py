@@ -4,6 +4,8 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List
 
+from rich.progress import track
+
 from arto.conf import settings
 from arto.core.utils import user_confirm
 
@@ -21,37 +23,32 @@ def load_files(
     Returns:
         A dict with the md5 as a key and the list of files associated with the same md5
     """
+    if exclude_dirs is None:
+        exclude_dirs = []
     ########################
     # LOADING MD5_FILE
     ########################
-    logger.info(f"Recursively loading {settings.MD5_FILE} from {root_dir}")
-    md5_files = [f for f in root_dir.rglob(settings.MD5_FILE)]
-
-    to_skip = list()
-    for f in md5_files:
-        if exclude_dirs and f.parent in exclude_dirs:
-            logger.warning(f"\t- Skipping {f}")
-            to_skip.append(f)
-        else:
-            logger.info(f"\t- Found: {f.as_posix()}")
-    md5_files_filtered = [f for f in md5_files if f not in to_skip]
+    logger.info(f"Searching recursively {settings.MD5_FILE} in {root_dir}")
+    md5_files = [
+        f for f in root_dir.rglob(settings.MD5_FILE) if f.parent not in exclude_dirs
+    ]
 
     ########################
     # LOAD MD5_FILE CONTENT
     ########################
     files_found_dict = defaultdict(list)
-    total_files = len(md5_files_filtered)
-    for count, f in enumerate(md5_files_filtered):
-        logger.info(f"{count + 1}/{total_files} - Loading {f.as_posix()} content")
-        md5_files_dict = read_md5_file(f)
+    total_files = len(md5_files)
+    for count, md5_f in enumerate(md5_files):
+        md5_files_dict = read_md5_file(md5_f)
 
-        for md5, file_list in md5_files_dict.items():
+        for md5, file_list in track(
+            md5_files_dict.items(),
+            description=f"- ({count + 1}/{total_files}) {md5_f}:",
+            show_speed=True,
+        ):
             if len(file_list) == 0:
                 continue
             files_found_dict[md5].extend(file_list)
-            # count += len(file_list)
-            # if progress_bar:
-            #     update_progress(current_root, count / n_files)
 
     return files_found_dict
 
