@@ -4,6 +4,7 @@ import click
 
 import arto
 from arto import settings
+from arto.core import cleaner
 
 logger = logging.getLogger("arto")
 
@@ -22,8 +23,9 @@ def main():
 @click.argument("config", type=click.Path(exists=True))
 @click.option("--dry-run", is_flag=True, help="Dry run mode.")
 @verbose_option
-def clean(**kwargs):
+def clean(config, dry_run, **kwargs):
     settings.configure(**kwargs)
+    cleaner.start(config, dry_run)
 
 
 if __name__ == "__main__":

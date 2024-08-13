@@ -5,6 +5,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import List, Any
 
+from arto.conf import settings
 from arto.core.cleaner.model import CleanPath
 from arto.core.utils import rmdir
 
@@ -14,15 +15,15 @@ logger = logging.getLogger("arto")
 class CleanManager:
     def __init__(
         self,
-        config_file: Path,
+        config: Path,
         dry_run: bool = False,
     ):
         """
         Args:
-            config_file: Path to configuration file in yaml format
+            config: Path to configuration file in yaml format
             dry_run: If true, do not remove anything
         """
-        self._config: config_file
+        self._config = config
         self._dry_run = dry_run
 
     @property
@@ -30,7 +31,9 @@ class CleanManager:
         return self._dry_run
 
     def read_config(self) -> List[CleanPath]:
-        pass
+        return settings.read_config(
+            self._config, constructors={"!CleanPath": clean_path_constructor}
+        )
 
     def run(self) -> None:
         """Start cleaning procedures"""
@@ -128,3 +131,9 @@ def get_dirs_to_rm(
 
     # exclude the most recent to_keep dirs
     return filtered_and_sorted_dirs[:-to_keep]
+
+
+def clean_path_constructor(loader, node):
+    # The function is called when the constructor is needed
+    fields = loader.construct_mapping(node, deep=True)
+    return CleanPath(**fields)
