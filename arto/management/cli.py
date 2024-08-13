@@ -18,5 +18,13 @@ def main():
     arto.setup()
 
 
+@main.command()
+@click.argument("config", type=click.Path(exists=True))
+@click.option("--dry-run", is_flag=True, help="Dry run mode.")
+@verbose_option
+def clean(**kwargs):
+    settings.configure(**kwargs)
+
+
 if __name__ == "__main__":
     main()

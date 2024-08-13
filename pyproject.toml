@@ -8,6 +8,9 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 click = "^8.1.7"
+pydantic = "^2.8.2"
+pytest = "^8.3.2"
+pytest-mock = "^3.14.0"
 
 
 [build-system]
