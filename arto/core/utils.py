@@ -17,3 +17,14 @@ def rmdir(p: Path, dry_run: bool = False) -> None:
     except OSError as e:
         logger.error(f"Error: {e}")
         raise e
+
+
+def user_confirm():
+    """
+    Ask user to enter Y or N (case-insensitive).
+    :return: True if the answer is Y.
+    """
+    answer = ""
+    while answer not in ["y", "n"]:
+        answer = input("OK to push to continue [Y/N]? ").lower()
+    return answer == "y"
