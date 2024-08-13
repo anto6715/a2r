@@ -10,5 +10,11 @@ class Settings:
                 if setting.isupper():
                     setattr(self, setting, getattr(module, setting))
 
+    def configure(self, **ext_settings):
+        """Set new settings or override default ones."""
+        for key, value in ext_settings.items():
+            if key.isupper():
+                setattr(self, key, value)
+
 
 settings = Settings(*TO_LOAD)
