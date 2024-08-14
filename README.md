@@ -123,8 +123,47 @@ To consider that the safe mode doesn't remove the dir under rolling.
 
 ```yaml
     force: # optional
-      to_keep: Z
+        to_keep: Z
 ```
 
 * `force`: Enable path rm without any check
 * `to_keep`: how much dir/file to not include in the rolling
+
+---
+
+## Update md5 dir
+
+A requirement to safe clean, is to compute in advance the md5 of all files in the rolling path using the command:
+
+```shell
+update-md5 [OPTIONS]
+
+Options:
+  -p, --path PATH  [required]
+  -d, --debug      Enable debug mode.
+  --help           Show this message and exit.
+```
+
+The command will create in the directory a file called `.dir_md5.txt` with the following structure:
+
+```txt
+md5hash filename1
+md5hash filename2
+```
+
+## Safe Clean
+
+```shell
+Usage: cli.py saferm [OPTIONS]
+
+Options:
+  --keep PATH    [required]
+  --clean PATH   [required]
+  -f, --force    Delete files without confirm request
+  -d, --dry-run  Disable file removal
+  -d, --debug    Enable debug mode.
+  --help         Show this message and exit.
+```
+
+Safe Rm command is the equivalent of safe rm rolling section: it remove files from **clean path** only if exists an
+identical copy in **keep path**
