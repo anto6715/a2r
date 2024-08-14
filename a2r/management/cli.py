@@ -23,7 +23,7 @@ def main():
 
 
 @main.command()
-@click.argument("config", type=Path)
+@click.option("-c", "--config", type=Path, required=True)
 @click.option("--dry-run", is_flag=True, help="Dry run mode.")
 @verbose_option
 def rolling(config, dry_run, **kwargs):
@@ -32,8 +32,8 @@ def rolling(config, dry_run, **kwargs):
 
 
 @main.command()
-@click.argument("path_to_keep", type=Path)
-@click.argument("path_to_clean", type=Path)
+@click.argument("--keep", "path_to_keep", type=Path, required=True)
+@click.argument("--clean", "path_to_clean", type=Path, required=True)
 @click.option(
     "-f",
     "--force",
@@ -54,7 +54,7 @@ def saferm(
 
 
 @main.command()
-@click.argument("path", type=Path)
+@click.argument("-p", "--path", "path", type=Path, required=True)
 @verbose_option
 def update_md5(path: Path, **kwargs):
     settings.configure(**kwargs)
