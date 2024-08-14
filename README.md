@@ -75,7 +75,10 @@ Here a template of a rolling configuration file:
 
 let's comment each section.
 
-#### CleanPath object
+<details>
+  <summary>
+    <b>CleanPath object</b>
+  </summary>
 
 With this, we start to declare a list of !CleanPath objects with two mandatory attributes:
 
@@ -88,7 +91,12 @@ With this, we start to declare a list of !CleanPath objects with two mandatory a
 * `path`: it's the path to keep under rolling
 * `fmt`: it's a string bash that represent the format of file/dir to delete. It can contains jolly characters `?` or `*`
 
-#### Safe rolling
+</details>
+
+<details>
+  <summary>
+    <b>Safe rolling</b>
+  </summary>
 
 ```yaml
   safe:
@@ -103,7 +111,12 @@ With this, we start to declare a list of !CleanPath objects with two mandatory a
 * `reference_paths`: a list of path where to find if a local copy already exists
 
 To consider that the safe mode doesn't remove the dir under rolling.
+</details>
 
+<details>
+  <summary>
+    <b>Conditional Rolling</b>
+  </summary>
 #### Conditional Rolling
 
 ```yaml
@@ -119,7 +132,12 @@ To consider that the safe mode doesn't remove the dir under rolling.
 * `expected_files`: specify the exact list of files expected to find in rolling path to trigger the rm operations. The
   filename can contains jolly character `?` and `*`
 
-#### Force Rm
+</details>
+
+<details>
+  <summary>
+    <b>Force Rm</b>
+  </summary>
 
 ```yaml
     force: # optional
@@ -128,6 +146,8 @@ To consider that the safe mode doesn't remove the dir under rolling.
 
 * `force`: Enable path rm without any check
 * `to_keep`: how much dir/file to not include in the rolling
+
+</details>
 
 ---
 
@@ -153,6 +173,9 @@ md5hash filename2
 
 ## Safe Clean
 
+Safe Rm command is the equivalent of safe rm rolling section: it removes files from **clean path** only if exists an
+identical copy in **keep path**
+
 ```shell
 Usage: cli.py saferm [OPTIONS]
 
@@ -164,6 +187,3 @@ Options:
   -d, --debug    Enable debug mode.
   --help         Show this message and exit.
 ```
-
-Safe Rm command is the equivalent of safe rm rolling section: it remove files from **clean path** only if exists an
-identical copy in **keep path**
