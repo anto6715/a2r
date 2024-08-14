@@ -115,7 +115,7 @@ To consider that the safe mode doesn't remove the dir under rolling.
 
 <details>
   <summary>
-    <b>Conditional Rolling</b>
+    <b>Conditional</b>
   </summary>
 #### Conditional
 
