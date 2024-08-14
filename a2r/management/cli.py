@@ -3,13 +3,13 @@ from pathlib import Path
 
 import click
 
-import arto
-from arto import settings
-from arto.core import cleaner
-from arto.core import md5
-from arto.core import safe_rm
+import a2r
+from a2r import settings
+from a2r.core import cleaner
+from a2r.core import md5
+from a2r.core import safe_rm
 
-logger = logging.getLogger("arto")
+logger = logging.getLogger("a2r")
 
 verbose_option = click.option(
     "-d", "--debug", "DEBUG", is_flag=True, help="Enable debug mode."
@@ -17,9 +17,9 @@ verbose_option = click.option(
 
 
 @click.group()
-@click.version_option(package_name="arto")
+@click.version_option(package_name="a2r")
 def main():
-    arto.setup()
+    a2r.setup()
 
 
 @main.command()

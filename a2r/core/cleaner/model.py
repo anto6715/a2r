@@ -4,7 +4,7 @@ from typing import List
 
 from pydantic import BaseModel, Field
 
-logger = logging.getLogger("arto")
+logger = logging.getLogger("a2r")
 
 
 class SafeRm(BaseModel):

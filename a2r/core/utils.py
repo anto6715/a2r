@@ -2,7 +2,7 @@ import logging
 import shutil
 from pathlib import Path
 
-logger = logging.getLogger("arto")
+logger = logging.getLogger("a2r")
 
 
 def rmdir(p: Path, dry_run: bool = False) -> None:

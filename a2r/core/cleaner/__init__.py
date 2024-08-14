@@ -1,5 +1,5 @@
-from arto.core.cleaner.model import CleanPath
-from arto.core.cleaner.service import CleanManager
+from a2r.core.cleaner.model import CleanPath
+from a2r.core.cleaner.service import CleanManager
 
 
 def start(*args, **kwargs):
