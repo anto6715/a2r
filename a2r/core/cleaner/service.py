@@ -7,8 +7,8 @@ from typing import List, Any
 
 from a2r.conf import settings
 from a2r.core.cleaner.model import CleanPath
-from a2r.core.utils import rmdir
 from a2r.core.safe_rm import safe_rm_service
+from a2r.core.utils import rmdir
 from a2r.management.cli import update_md5
 
 logger = logging.getLogger("a2r")
@@ -77,7 +77,11 @@ class CleanManager:
         for path_to_rm in dirs_to_rm:
             for ref_path in reference_paths:
                 update_md5(path_to_rm)
-                safe_rm_service.safe_rm(path_to_rm, ref_path)
+                safe_rm_service.run(
+                    path_to_clean=path_to_rm,
+                    path_to_keep=ref_path,
+                    dry_run=self.dry_run,
+                )
 
     def _conditional_clean(
         self, path_to_clean: Path, fmt: str, to_keep: int, expected_files: set[str]
@@ -137,6 +141,6 @@ def get_dirs_to_rm(
 
 
 def clean_path_constructor(loader, node):
-    # The function is called when the constructor is needed
+    # The function is called when the constructor is necessary
     fields = loader.construct_mapping(node, deep=True)
     return CleanPath(**fields)
