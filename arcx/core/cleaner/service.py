@@ -5,13 +5,13 @@ from collections import defaultdict
 from pathlib import Path
 from typing import List, Any
 
-from a2r.conf import settings
-from a2r.core.cleaner.model import CleanPath
-from a2r.core.safe_rm import safe_rm_service
-from a2r.core.utils import rmdir
-from a2r.management.cli import update_md5
+from arcx.conf import settings
+from arcx.core.cleaner.model import CleanPath
+from arcx.core.safe_rm import safe_rm_service
+from arcx.core.utils import rmdir
+from arcx.management.cli import update_md5
 
-logger = logging.getLogger("a2r")
+logger = logging.getLogger("arcx")
 
 
 class CleanManager:

@@ -1,6 +1,6 @@
 # A2R
 
-The name a2r, pronounced as **a double r**, stands for **A**rchive safe-**R**emove **R**olling.
+The name arcx, pronounced as **a double r**, stands for **A**rchive safe-**R**emove **R**olling.
 It's a toolbox that provides different tool for:
 
 - **Archive** automatically Oceanic experiment outputs base on yaml configuration file
@@ -13,19 +13,19 @@ It's a toolbox that provides different tool for:
 ### Via pip
 
 ```shell
-pip install a2r
+pip install arcx
 ```
 
 ### Via conda/mamba
 
 ```shell
-mamba install a2r
+mamba install arcx
 ```
 
 ## Usage
 
 ```shell
-Usage: a2r [OPTIONS] COMMAND [ARGS]...
+Usage: arcx [OPTIONS] COMMAND [ARGS]...
 
 Options:
   --version  Show the version and exit.

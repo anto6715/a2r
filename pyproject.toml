@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "a2r"
+name = "arcx"
 version = "0.1.0"
 description = "Archive (safe)-Removal Rolling Toolbox"
 authors = ["Antonio Mariani <antonio.mariani@cmcc.it>"]
@@ -19,4 +19,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-a2r = "a2r.management:start_from_command_line_interface"
+arcx = "arcx.management:start_from_command_line_interface"

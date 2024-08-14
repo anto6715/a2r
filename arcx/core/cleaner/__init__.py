@@ -1,5 +1,5 @@
-from a2r.core.cleaner.model import CleanPath
-from a2r.core.cleaner.service import CleanManager
+from arcx.core.cleaner.model import CleanPath
+from arcx.core.cleaner.service import CleanManager
 
 
 def start(*args, **kwargs):

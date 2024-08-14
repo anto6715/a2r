@@ -2,8 +2,8 @@ import os
 from pathlib import Path
 from typing import Dict, Callable, List, Any
 
-from a2r.conf import global_settings
-from a2r.conf.reader import read_ini, read_json, read_yaml
+from arcx.conf import global_settings
+from arcx.conf.reader import read_ini, read_json, read_yaml
 
 TO_LOAD = [global_settings]
 READERS: Dict[Callable, List[str]] = {

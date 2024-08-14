@@ -3,13 +3,13 @@ from pathlib import Path
 
 import click
 
-import a2r
-from a2r import settings
-from a2r.core import cleaner
-from a2r.core import md5
-from a2r.core import safe_rm
+import arcx
+from arcx import settings
+from arcx.core import cleaner
+from arcx.core import md5
+from arcx.core import safe_rm
 
-logger = logging.getLogger("a2r")
+logger = logging.getLogger("arcx")
 
 verbose_option = click.option(
     "-d", "--debug", "DEBUG", is_flag=True, help="Enable debug mode."
@@ -17,9 +17,9 @@ verbose_option = click.option(
 
 
 @click.group()
-@click.version_option(package_name="a2r")
+@click.version_option(package_name="arcx")
 def main():
-    a2r.setup()
+    arcx.setup()
 
 
 @main.command()
