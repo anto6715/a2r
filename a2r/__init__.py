@@ -1,5 +1,5 @@
-from arto.conf import settings
-from arto.utils.log import configure_logging
+from a2r.conf import settings
+from a2r.utils.log import configure_logging
 
 
 def setup(**usr_settings):

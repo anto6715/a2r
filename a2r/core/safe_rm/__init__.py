@@ -1,4 +1,4 @@
-from arto.core.safe_rm import service as safe_rm_service
+from a2r.core.safe_rm import service as safe_rm_service
 
 
 def start(*args, **kwargs):

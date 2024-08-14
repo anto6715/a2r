@@ -5,13 +5,13 @@ from collections import defaultdict
 from pathlib import Path
 from typing import List, Any
 
-from arto.conf import settings
-from arto.core.cleaner.model import CleanPath
-from arto.core.utils import rmdir
-from arto.core.safe_rm import safe_rm_service
-from arto.management.cli import update_md5
+from a2r.conf import settings
+from a2r.core.cleaner.model import CleanPath
+from a2r.core.utils import rmdir
+from a2r.core.safe_rm import safe_rm_service
+from a2r.management.cli import update_md5
 
-logger = logging.getLogger("arto")
+logger = logging.getLogger("a2r")
 
 
 class CleanManager:

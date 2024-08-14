@@ -3,13 +3,13 @@ from pathlib import Path
 
 import click
 
-import arto
-from arto import settings
-from arto.core import cleaner
-from arto.core import md5
-from arto.core import safe_rm
+import a2r
+from a2r import settings
+from a2r.core import cleaner
+from a2r.core import md5
+from a2r.core import safe_rm
 
-logger = logging.getLogger("arto")
+logger = logging.getLogger("a2r")
 
 verbose_option = click.option(
     "-d", "--debug", "DEBUG", is_flag=True, help="Enable debug mode."
@@ -17,23 +17,23 @@ verbose_option = click.option(
 
 
 @click.group()
-@click.version_option(package_name="arto")
+@click.version_option(package_name="a2r")
 def main():
-    arto.setup()
+    a2r.setup()
 
 
 @main.command()
-@click.argument("config", type=Path)
+@click.option("-c", "--config", type=Path, required=True)
 @click.option("--dry-run", is_flag=True, help="Dry run mode.")
 @verbose_option
-def clean(config, dry_run, **kwargs):
+def rolling(config, dry_run, **kwargs):
     settings.configure(**kwargs)
     cleaner.start(config, dry_run)
 
 
 @main.command()
-@click.argument("path_to_keep", type=Path)
-@click.argument("path_to_clean", type=Path)
+@click.option("--keep", "path_to_keep", type=Path, required=True)
+@click.option("--clean", "path_to_clean", type=Path, required=True)
 @click.option(
     "-f",
     "--force",
@@ -54,7 +54,7 @@ def saferm(
 
 
 @main.command()
-@click.argument("path", type=Path)
+@click.option("-p", "--path", "path", type=Path, required=True)
 @verbose_option
 def update_md5(path: Path, **kwargs):
     settings.configure(**kwargs)

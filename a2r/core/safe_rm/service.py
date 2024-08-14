@@ -6,10 +6,10 @@ from typing import Dict, List
 
 from rich.progress import track
 
-from arto.conf import settings
-from arto.core.utils import user_confirm
+from a2r.conf import settings
+from a2r.core.utils import user_confirm
 
-logger = logging.getLogger("arto")
+logger = logging.getLogger("a2r")
 
 
 def load_files(

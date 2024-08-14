@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 
 # Assuming the function `expected_files_are_present` is in a module named `file_checker`
-from arto.core.cleaner.service import expected_files_are_present
+from a2r.core.cleaner.service import expected_files_are_present
 
 # Set up logger
 logger = logging.getLogger(__name__)

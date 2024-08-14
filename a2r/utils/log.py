@@ -1,17 +1,17 @@
 import logging.config
 
-from arto.conf import settings
-from arto.utils.module_loading import import_string
+from a2r.conf import settings
+from a2r.utils.module_loading import import_string
 
 DEFAULT_LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "filters": {
         "require_debug_false": {
-            "()": "arto.utils.log.RequireDebugFalse",
+            "()": "a2r.utils.log.RequireDebugFalse",
         },
         "require_debug_true": {
-            "()": "arto.utils.log.RequireDebugTrue",
+            "()": "a2r.utils.log.RequireDebugTrue",
         },
     },
     "formatters": {
@@ -34,7 +34,7 @@ DEFAULT_LOGGING = {
         },
     },
     "loggers": {
-        "arto": {
+        "a2r": {
             "handlers": ["console", "console_with_debug"],
             "level": "DEBUG",
         },

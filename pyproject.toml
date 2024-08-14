@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "arto"
+name = "a2r"
 version = "0.1.0"
-description = "Archive and (safe) Removal Toolbox"
+description = "Archive (safe)-Removal Rolling Toolbox"
 authors = ["Antonio Mariani <antonio.mariani@cmcc.it>"]
 readme = "README.md"
 
