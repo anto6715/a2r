@@ -1,0 +1,12 @@
+# dir
+.idea
+__pycache__
+dist
+
+# files
+poetry.lock
+.dir_md5.txt
+
+# extensions
+*.nc
+*.yaml
