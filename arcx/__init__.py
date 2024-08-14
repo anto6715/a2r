@@ -1,5 +1,5 @@
-from a2r.conf import settings
-from a2r.utils.log import configure_logging
+from arcx.conf import settings
+from arcx.utils.log import configure_logging
 
 
 def setup(**usr_settings):

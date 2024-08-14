@@ -1,17 +1,17 @@
 import logging.config
 
-from a2r.conf import settings
-from a2r.utils.module_loading import import_string
+from arcx.conf import settings
+from arcx.utils.module_loading import import_string
 
 DEFAULT_LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "filters": {
         "require_debug_false": {
-            "()": "a2r.utils.log.RequireDebugFalse",
+            "()": "arcx.utils.log.RequireDebugFalse",
         },
         "require_debug_true": {
-            "()": "a2r.utils.log.RequireDebugTrue",
+            "()": "arcx.utils.log.RequireDebugTrue",
         },
     },
     "formatters": {
@@ -34,7 +34,7 @@ DEFAULT_LOGGING = {
         },
     },
     "loggers": {
-        "a2r": {
+        "arcx": {
             "handlers": ["console", "console_with_debug"],
             "level": "DEBUG",
         },

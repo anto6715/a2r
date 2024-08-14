@@ -8,6 +8,14 @@ This project uses [*towncrier*](https://towncrier.readthedocs.io/) and the chang
 
 <!-- towncrier release notes start -->
 
+# ## [0.2.0](https://github.com/twisted/my-project/tree/0.2.0) - 2024-08-14
+
+### Changed
+
+- Rename tool to arcx ([#4](https://github.com/anto6715/arcx/pull/4))
+- Rename rolling command to clean ([#4](https://github.com/anto6715/arcx/pull/4))
+
+
 # ## [0.1.0](https://github.com/twisted/my-project/tree/0.1.0) - 2024-08-14
 
 ### Added

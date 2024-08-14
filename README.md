@@ -1,31 +1,33 @@
-# A2R
+# arcX - Archive, Rm & Clean toolboX
 
-The name a2r, pronounced as **a double r**, stands for **A**rchive safe-**R**emove **R**olling.
-It's a toolbox that provides different tool for:
+ArcX is a versatile toolbox designed to streamline data management by automating key tasks. Whether you're handling
+experiment outputs or maintaining clean directories, ArcX simplifies the process with a range of powerful tools.
 
-- **Archive** automatically Oceanic experiment outputs base on yaml configuration file
-- (safe) **Rm** files if a local copy already exists
-- Automatic **Rolling** with different options on multiple directory with a single command. Also in this case the info
-  about what to delete and how are provided using a yaml configuration file
+* **Archiving**: Seamlessly archive Oceanic experiment outputs using a flexible YAML configuration file. ArcX takes care
+  of organizing and storing your data without manual intervention.
+* **Safe File Removal**: Efficiently remove files that already have a local copy. ArcX ensures that only unnecessary
+  files are deleted, safeguarding important data.
+* **Comprehensive Directory Cleaning**: Clean multiple directories with a single command. ArcX offers various cleaning
+  options and leverages a YAML configuration file to specify exactly what to delete and how to do it.
 
 ## Installation
 
 ### Via pip
 
 ```shell
-pip install a2r
+pip install arcx
 ```
 
 ### Via conda/mamba
 
 ```shell
-mamba install a2r
+mamba install arcx
 ```
 
 ## Usage
 
 ```shell
-Usage: a2r [OPTIONS] COMMAND [ARGS]...
+Usage: arcx [OPTIONS] COMMAND [ARGS]...
 
 Options:
   --version  Show the version and exit.

@@ -6,10 +6,10 @@ from typing import Dict, List
 
 from rich.progress import track
 
-from a2r.conf import settings
-from a2r.core.utils import user_confirm
+from arcx.conf import settings
+from arcx.core.utils import user_confirm
 
-logger = logging.getLogger("a2r")
+logger = logging.getLogger("arcx")
 
 
 def load_files(

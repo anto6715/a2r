@@ -1,7 +1,7 @@
 import hashlib
 from pathlib import Path
 
-from a2r.conf import settings
+from arcx.conf import settings
 
 
 def from_file(f: Path, chunk_size: int = 8192) -> str:
