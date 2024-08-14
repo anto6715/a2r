@@ -26,7 +26,7 @@ def main():
 @click.argument("config", type=Path)
 @click.option("--dry-run", is_flag=True, help="Dry run mode.")
 @verbose_option
-def clean(config, dry_run, **kwargs):
+def rolling(config, dry_run, **kwargs):
     settings.configure(**kwargs)
     cleaner.start(config, dry_run)
 
