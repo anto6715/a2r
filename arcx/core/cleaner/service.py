@@ -9,7 +9,7 @@ from arcx.conf import settings
 from arcx.core.cleaner.model import CleanPath
 from arcx.core.safe_rm import safe_rm_service
 from arcx.core.utils import rmdir
-from arcx.management.cli import update_md5
+from arcx.core import md5
 
 logger = logging.getLogger("arcx")
 
@@ -76,7 +76,7 @@ class CleanManager:
         dirs_to_rm = get_dirs_to_rm(path_to_clean, fmt, to_keep)
         for path_to_rm in dirs_to_rm:
             for ref_path in reference_paths:
-                update_md5(path_to_rm)
+                md5.update_dir_md5(path_to_rm)
                 safe_rm_service.run(
                     path_to_clean=path_to_rm,
                     path_to_keep=ref_path,
