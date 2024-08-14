@@ -95,7 +95,7 @@ With this, we start to declare a list of !CleanPath objects with two mandatory a
 
 <details>
   <summary>
-    <b>Safe rolling</b>
+    <b>Safe</b>
   </summary>
 
 ```yaml
@@ -117,7 +117,7 @@ To consider that the safe mode doesn't remove the dir under rolling.
   <summary>
     <b>Conditional Rolling</b>
   </summary>
-#### Conditional Rolling
+#### Conditional
 
 ```yaml
   conditional:
@@ -136,7 +136,7 @@ To consider that the safe mode doesn't remove the dir under rolling.
 
 <details>
   <summary>
-    <b>Force Rm</b>
+    <b>Force</b>
   </summary>
 
 ```yaml
