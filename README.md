@@ -171,6 +171,8 @@ md5hash filename1
 md5hash filename2
 ```
 
+---
+
 ## Safe Clean
 
 Safe Rm command is the equivalent of safe rm rolling section: it removes files from **clean path** only if exists an
